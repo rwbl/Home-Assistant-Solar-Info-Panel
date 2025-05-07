@@ -36,23 +36,28 @@ There are 3 components interacting with each other being Home Assistant (HA), No
 * NR RESTful server to get the relevant HA entities data, create HTTP response content CSV string and sent the HTTP response to B4R.
 * B4R to parse the HTTP response CSV string and updates the display. The display is controlled using the B4R library [rLovyanGFXEx][https://www.b4x.com/android/forum/threads/rlovyangfxex-esp32.166606).
 
-**HTTP Response Format**
+### HTTP Response Format
 CSV string with HA entities data:
 powerfromsolar,powerfromgrid,powertogrid,powertohouse,powertobattery,powerfrombattery,batterychargestate,powerdatestamp,powertimestamp
 ```
 774,0,506,268,0,0,100,20250422,1207
 ```
-**Hardware**
+
+### Data Flow
+![Image](https://github.com/user-attachments/assets/fedc6629-1dcd-4c60-862e-e7030e4d203a)
+
+### Hardware
 * Sunton ESP32 2.8" TFT, w320xh240, touch, driver ILI9341.
 * DIY MORE ESP32 0.96" OLED, w128xh64, no touch, driver SSD1306.
 
-**Software**
+### Software
 * [B4R](https://www.b4x.com/b4r.html) 4.00 (64 bit) for the ESP32 with external library [rLovyanGFXEx](https://www.b4x.com/android/forum/threads/rlovyangfxex-esp32.166606) 1.0 (requires the ESP32 library 3.1.3 and LovyanGFX 1.2.0).
 * [Home Assistant](https://www.home-assistant.io) 2025.x with Node-RED Add-on 19.x.
 
-**Node-RED Flow**
+### Node-RED Flow
 HTTP RESTful server listening to GET requests http://ip-ha:1880/endpoint/solarinfo?data=all.
 Receiving the request, the current state of the HA entities are obtained and the date/time stamp is set.
 HTTP response is a CSV string: 774,0,506,268,0,0,100,20250422,1207
 ![Image](https://github.com/user-attachments/assets/8ac26211-7aad-463e-9fb5-4df9be426e6d)
 Note: There are more flows to built the power data.
+
