@@ -1,4 +1,3 @@
-# CHANGELOG - B4R Library rIRRemoteEx
-
-## v1.0.0 (Build 202505DD)
-* NEW: First version based on the B4R library rESP3228CYD.
+# CHANGELOG - Home Assistant Solar Info Panel
+## v1.0.0 (Build 20250423)
+* NEW: First version.
