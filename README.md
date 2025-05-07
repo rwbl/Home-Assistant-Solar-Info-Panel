@@ -50,7 +50,9 @@ powerfromsolar,powerfromgrid,powertogrid,powertohouse,powertobattery,powerfromba
 HTTP RESTful server listening to GET requests http://ip-ha:1880/endpoint/solarinfo?data=all.
 Receiving the request, the current state of the HA entities are obtained and the date/time stamp is set.
 HTTP response is a CSV string: 774,0,506,268,0,0,100,20250422,1207
+
 ![Image](https://github.com/user-attachments/assets/8ac26211-7aad-463e-9fb5-4df9be426e6d)
+
 Note: There are more flows to built the power data.
 
 ## Hardware
