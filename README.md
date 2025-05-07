@@ -36,6 +36,9 @@ There are 3 components interacting with each other being Home Assistant (HA), No
 * NR RESTful server to get the relevant HA entities data, create HTTP response content CSV string and sent the HTTP response to B4R.
 * B4R to parse the HTTP response CSV string and updates the display. The display is controlled using the B4R library [rLovyanGFXEx][https://www.b4x.com/android/forum/threads/rlovyangfxex-esp32.166606).
 
+### Data Flow
+![Image](https://github.com/user-attachments/assets/fedc6629-1dcd-4c60-862e-e7030e4d203a)
+
 ### HTTP Response Format
 CSV string with HA entities data:
 powerfromsolar,powerfromgrid,powertogrid,powertohouse,powertobattery,powerfrombattery,batterychargestate,powerdatestamp,powertimestamp
@@ -43,21 +46,25 @@ powerfromsolar,powerfromgrid,powertogrid,powertohouse,powertobattery,powerfromba
 774,0,506,268,0,0,100,20250422,1207
 ```
 
-### Data Flow
-![Image](https://github.com/user-attachments/assets/fedc6629-1dcd-4c60-862e-e7030e4d203a)
-
-### Hardware
-* Sunton ESP32 2.8" TFT, w320xh240, touch, driver ILI9341.
-* DIY MORE ESP32 0.96" OLED, w128xh64, no touch, driver SSD1306.
-
-### Software
-* [B4R](https://www.b4x.com/b4r.html) 4.00 (64 bit) for the ESP32 with external library [rLovyanGFXEx](https://www.b4x.com/android/forum/threads/rlovyangfxex-esp32.166606) 1.0 (requires the ESP32 library 3.1.3 and LovyanGFX 1.2.0).
-* [Home Assistant](https://www.home-assistant.io) 2025.x with Node-RED Add-on 19.x.
-
-### Node-RED Flow
+## Node-RED Flow
 HTTP RESTful server listening to GET requests http://ip-ha:1880/endpoint/solarinfo?data=all.
 Receiving the request, the current state of the HA entities are obtained and the date/time stamp is set.
 HTTP response is a CSV string: 774,0,506,268,0,0,100,20250422,1207
 ![Image](https://github.com/user-attachments/assets/8ac26211-7aad-463e-9fb5-4df9be426e6d)
 Note: There are more flows to built the power data.
+
+## Hardware
+* Sunton ESP32 2.8" TFT, w320xh240, touch, driver ILI9341.
+* DIY MORE ESP32 0.96" OLED, w128xh64, no touch, driver SSD1306.
+
+## Software
+* [B4R](https://www.b4x.com/b4r.html) 4.00 (64 bit) for the ESP32 with external library [rLovyanGFXEx](https://www.b4x.com/android/forum/threads/rlovyangfxex-esp32.166606) 1.0 (requires the ESP32 library 3.1.3 and LovyanGFX 1.2.0).
+* [Home Assistant](https://www.home-assistant.io) 2025.x with Node-RED Add-on 19.x.
+
+## Source
+The source is in archive solarinfopanel-restful-NNN.zip.
+
+## License
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS for A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with the application. If not, see [GNU Licenses](https://www.gnu.org/licenses/).
+
 
